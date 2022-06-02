@@ -17,37 +17,37 @@ public class Main {
         CircularDataStructure all_chairs = new CircularDataStructure(number_of_chairs);
         while(true)
         {
-            System.out.println("#####--START--#####");
+            System.out.println("#####--START-COMMANDS-SECTION--#####");
             System.out.println("#-Commands-#");
-            System.out.println("Serve a new group of customers input:   1");
-            System.out.println("Remove a group of customers input:      2");
-            System.out.println("Show current state of all chairs input: 3");
-            System.out.println("If beginning of working day input:      4");
-            System.out.println("If end of working day input:            5");
+            System.out.println("##-  Serve a new group of customers input:   1");
+            System.out.println("##-  Remove a group of customers input:      2");
+            System.out.println("##-  Show current state of all chairs input: 3");
+            System.out.println("##-  If beginning of working day input:      4");
+            System.out.println("##-  If end of working day input:            5");
             System.out.print("Command: ");
             switch(scanner.nextInt())
             {
                 case 1:
-                    System.out.println("#####--END--#####\n");
                     serveNewGroup(all_chairs);
+                    System.out.println("#####--END-COMMANDS-SECTION--#####\n");
                     break;
                 case 2:
-                    System.out.println("#####--END--#####\n");
                     removeGroup(all_chairs);
+                    System.out.println("#####--END-COMMANDS-SECTION--#####\n");
                     break;
                 case 3:
-                    System.out.println("#####--END--#####\n");
                     currentStateOfRentableChairs(all_chairs);
+                    System.out.println("#####--END-COMMANDS-SECTION--#####\n");
                     break;
                 case 4:
                     newSituation();
                 case 5:
-                    System.out.println("#####--END--#####\n");
+                    System.out.println("#####--END-COMMANDS-SECTION--#####\n");
                     System.out.println("End of day");
                     System.out.println("#####--END-OF-DAY--#####\n");
                     return;
                 default:
-                    System.out.println("#####--END--#####\n");
+                    System.out.println("#####--END-COMMANDS-SECTION--#####\n");
                     System.out.println("Choose another command!");
             }
         }
@@ -91,14 +91,14 @@ public class Main {
             {
                 for(int i = 0; i < chairs_group.getGroup_size(); i++)
                 {
-                    System.out.println("free");
+                    System.out.println("chair: free");
                 }
             }
             else
             {
                 for(int i = 0; i < chairs_group.getGroup_size(); i++)
                 {
-                    System.out.print("group_id: ");
+                    System.out.print("chair: member_of_group: ");
                     System.out.println(chairs_group.getGroup_id());
                 }
             }
