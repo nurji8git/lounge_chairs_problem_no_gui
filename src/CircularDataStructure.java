@@ -101,7 +101,7 @@ public class CircularDataStructure
     }
 
     // This method removes group of customers from the chairs. Imagine that the customers going home.
-    public void removeGroup(int index_of_group)
+    public boolean removeGroup(int index_of_group)
     {
         for(Chairs_Group chairs_group: this.chairs_circular_list)
         {
@@ -110,10 +110,10 @@ public class CircularDataStructure
                 chairs_group.setGroup_id(0);
                 chairs_group.setIs_free(true);
                 mergeFreeGroupsOfChairs(chairs_group);
-                return;
+                return true;
             }
         }
-        this.chairs_circular_list.get(-1);
+        return false;
     }
 
     // This method merges groups of free chairs.
