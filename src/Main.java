@@ -40,6 +40,8 @@ public class Main {
                     System.out.println("#####--END-COMMANDS-SECTION--#####\n");
                     break;
                 case 4:
+                    // My solution works for any number of chairs. n is up to 2**32
+                    // Every new situation we can input a new number of chairs
                     newSituation();
                 case 5:
                     System.out.println("#####--END-COMMANDS-SECTION--#####\n");
