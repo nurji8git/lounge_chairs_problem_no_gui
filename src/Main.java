@@ -10,6 +10,7 @@ public class Main {
 
     public static void newSituation()
     {
+        current_group_id = 1;
         System.out.println("#####--BEGINNING-OF-DAY--#####");
         System.out.print("Input the number of all chairs: ");
         int number_of_chairs = scanner.nextInt();
@@ -21,29 +22,32 @@ public class Main {
             System.out.println("Serve a new group of customers input:   1");
             System.out.println("Remove a group of customers input:      2");
             System.out.println("Show current state of all chairs input: 3");
-            System.out.println("If end of working day input:            4");
+            System.out.println("If beginning of working day input:      4");
+            System.out.println("If end of working day input:            5");
             System.out.print("Command: ");
             switch(scanner.nextInt())
             {
                 case 1:
-                    System.out.println("#####--END--#####");
+                    System.out.println("#####--END--#####\n");
                     serveNewGroup(all_chairs);
                     break;
                 case 2:
-                    System.out.println("#####--END--#####");
+                    System.out.println("#####--END--#####\n");
                     removeGroup(all_chairs);
                     break;
                 case 3:
-                    System.out.println("#####--END--#####");
+                    System.out.println("#####--END--#####\n");
                     currentStateOfRentableChairs(all_chairs);
                     break;
                 case 4:
-                    System.out.println("#####--END--#####");
+                    newSituation();
+                case 5:
+                    System.out.println("#####--END--#####\n");
                     System.out.println("End of day");
-                    System.out.println("#####--END-OF-DAY--#####");
+                    System.out.println("#####--END-OF-DAY--#####\n");
                     return;
                 default:
-                    System.out.println("#####--END--#####");
+                    System.out.println("#####--END--#####\n");
                     System.out.println("Choose another command!");
             }
         }
@@ -55,11 +59,11 @@ public class Main {
         Customers_Group new_customers_group = new Customers_Group(current_group_id++, scanner.nextInt());
         if(all_chairs.addNewGroup(new_customers_group))
         {
-            System.out.println("#####--END--The new group of customers with ID: #" + new_customers_group.getGroup_id() + " rented " + new_customers_group.getGroup_size() + " chairs" + "--END--#####");
+            System.out.println("#####--END--The new group of customers with ID: #" + new_customers_group.getGroup_id() + " rented " + new_customers_group.getGroup_size() + " chairs" + "--END--#####\n");
         }
         else
         {
-            System.out.println("#####--END--There is no free chairs for this group of customers--END--#####");
+            System.out.println("#####--END--There is no free chairs for this group of customers--END--#####\n");
         }
     }
 
@@ -70,11 +74,11 @@ public class Main {
         int index = scanner.nextInt();
         if(all_chairs.removeGroup(index))
         {
-            System.out.println("#####--END--The group of customers with ID: " + index + " gone--END--#####");
+            System.out.println("#####--END--The group of customers with ID: " + index + " gone--END--#####\n");
         }
         else
         {
-            System.out.println("#####--END--There is no group with ID: " + index + "--END--#####");
+            System.out.println("#####--END--There is no group with ID: " + index + "--END--#####\n");
         }
     }
 
@@ -99,6 +103,6 @@ public class Main {
                 }
             }
         }
-        System.out.println("#####--END--Current state of all chairs--END--#####");
+        System.out.println("#####--END--Current state of all chairs--END--#####\n");
     }
 }
